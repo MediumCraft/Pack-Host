@@ -5,7 +5,9 @@ This software is created to assist issue with Oraxen's Polymath server.
 It is created a a simple replacement of Polymath, that indirectly interact with the server.
 But it can also host some of your resource packs as well.
 This creates an HTTP server that your Minecraft server needs to link to, hosting the file for the players to download without actually using Polymath.
-I keep having errors, then I figured I don't need Polymath, just some HTTP server that hosts my pack. 
+I keep having errors, then I figured I don't need Polymath, just some HTTP server that hosts my pack.
+## Issues
+* Access of other files will download the pack.zip too (same checksum) - Doesn't matter
 ## Installation
 1. Download the Python script in the Releases section and place it within the same directory as the Resource Pack.
 2. Install Python
