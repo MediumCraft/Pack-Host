@@ -16,13 +16,17 @@ class RestrictedHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     
     def translate_path(self, path):
         # Override base class method to restrict access to files outside of pack.zip
-        full_path = http.server.SimpleHTTPRequestHandler.translate_path(self, path)
-        if not full_path.endswith('/' + FILE_NAME):
+        full_path = os.path.join(self.document_root, FILE_NAME)
+        if not os.path.exists(full_path):
+            self.send_error(404, 'File Not Found')
+            return "404 File Not Found"
+        elif not full_path.endswith('pack.zip'):
             self.send_error(403, 'Forbidden')
             return "403 Forbidden"
         return full_path
 
 Handler = RestrictedHTTPRequestHandler
+Handler.document_root = os.path.dirname(os.path.abspath(__file__))
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     print(f"Serving at http://localhost:{PORT}/")
