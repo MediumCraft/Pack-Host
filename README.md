@@ -9,7 +9,7 @@ I keep having errors, then I figured I don't need Polymath, just some HTTP serve
 ## Installation
 1. Download the Python script in the Releases section and place it within the same directory as the Resource Pack.
 2. Install Python
-3. Run the server by with ```python pack-host.py```, CTRL+C(or any keyboard interruption) to stop the server
+3. Run the server by with ```python pack-host.py```
 4. As this script is designed with the enviornment of [Oraxen](https://oraxen.com). It looks and hosts the pack.zip by default. So just drop it in the Oraxen/pack folder
 5. Add a few configuration to the server.properties, as Oraxen does not directly support this server.
 ```
